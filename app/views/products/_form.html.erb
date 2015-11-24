@@ -1,0 +1,37 @@
+<!--I am using this _form.html.erb for filling things in and would like to use it for editing. Is there some way on the edit.html.erb page to inject @product.atribute in place of nil for default text... or just put it inside the form 
+if @product.id
+  somevar = @product.atribute #perhaps each through the attributes?
+else 
+  somevar = nil
+end-->
+<div class="container">
+<div class="inner container">
+<h1>Add a product to the store</h1>
+<%= form_tag '/products', method: :post do %>
+  <div class="form-group">
+    <%= label_tag :name %><br>
+    <%= text_field_tag(:name, nil,  class: "form-control" )%>
+  </div>
+ 
+  <div class="form-group">
+    <%= label_tag :unit_cost %><br>
+    <%= text_field_tag(:unit_cost, nil,  class: "form-control" )%>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :price %><br>
+    <%= text_field_tag(:price, nil,  class: "form-control" )%>
+  </div>
+  <div class="form-group">
+    <%= label_tag :image %><br>
+    <%= text_field_tag(:image, nil,  class: "form-control" )%>
+  </div>
+  <div class="form-group">
+    <%= label_tag :description %><br>
+    <%= text_field_tag(:description, nil, class: "form-control" )%>
+  </div>
+    <%= button_tag 'Create', class: "btn btn-default" %>
+  </div>
+<% end %>
+</div>
+</div>

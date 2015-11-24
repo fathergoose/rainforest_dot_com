@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+  <div class="well">
+  <table class="table">
+
+    <tr>
+      <th><%= @product.name %></th>
+    </tr>
+    <tr>
+      <td><h2><%= @product.sale_item %></h2></td>
+    </tr>
+    <tr>
+      <td><%= image_tag @product.image, class:"img-thumbnail" %></td>
+    </tr>
+    <tr>
+      <td><%= @product.description %></td>
+    </tr>
+    <tr>
+    <td><%= @product.price %></td>
+    </tr>
+    </table>
+        <a href="/products"><button type="button" class="btn btn-info">All Items</button></a>
+        <a href="/products/<%= @product.id %>/edit"><button type="button" class="btn btn-warning">Edit Item</button></a>
+        <a href="/products/<%= @product.id %>" data-method="delete"><button type="button" class="btn btn-danger">Delete Item</button></a>
+        
+  </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
