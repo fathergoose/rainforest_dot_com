@@ -60,8 +60,8 @@ class ProductsController < ApplicationController
     redirect_to '/products'
   end
 
-  def supplier
-    @supplier = product.supplier
-  end
+  # def supplier
+  #   @supplier = product.supplier
+  # end
   
 end
