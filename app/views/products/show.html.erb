@@ -11,8 +11,11 @@
       <td><h2><%= @product.sale_item %></h2></td>
     </tr>
     <tr>
-      <td><%= image_tag @product.image, class:"img-thumbnail" %></td>
-    </tr>
+      <td>
+        <% @product.images.each do |image| %>
+        <img class="media-object img-thumbnail" width="304" height="236" src="<%= image.url %>" alt="..."/>
+        <% end %>
+      </td>
     <tr>
       <td><%= @product.description %></td>
     </tr>
