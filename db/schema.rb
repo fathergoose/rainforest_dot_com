@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122222226) do
+ActiveRecord::Schema.define(version: 20151124004923) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.integer  "unit_cost",   limit: 4
     t.integer  "price",       limit: 4
-    t.string   "image",       limit: 255
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
