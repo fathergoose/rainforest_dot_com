@@ -46,6 +46,8 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
       <% flash.each do |name, message| %>
       <div class="alert alert-<%=name %> alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
