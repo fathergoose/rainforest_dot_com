@@ -1,17 +1,18 @@
 class ProductsController < ApplicationController
 
   def index
-    # @products = Product.all
     @active_home = "active"
     product_ids = Product.select(:id)
     @random_product = product_ids.sample.id
     @products = Array.new
+
     if params[:sort] == 'price-asc'
       @products = Product.order(price: :asc)
     elsif params[:sort] == 'price-dec'
       @products = Product.order(price: :desc)
     else
-      Product.all.each { |product| @products << product }
+    @products = Product.all
+    #  Product.all.each { |product| @products << product }
     end
   end
 
@@ -24,7 +25,6 @@ class ProductsController < ApplicationController
       name: params[:name],
       unit_cost: params[:unit_cost],
       price: params[:price],
-      image: params[:image],
       description: params[:description]
       )
     flash[:success] = "Your the product has been added to the rainforest"
@@ -32,8 +32,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
+    @product = Product.find_by(id: params[:id])
   end
 
   def edit
@@ -46,7 +45,6 @@ class ProductsController < ApplicationController
       name: params[:name],
       unit_cost: params[:unit_cost],
       price: params[:price],
-      image: params[:image],
       description: params[:description]
     )
     flash[:info] = "This product has been updated"
