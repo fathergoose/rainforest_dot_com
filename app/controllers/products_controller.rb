@@ -19,14 +19,17 @@ class ProductsController < ApplicationController
   def new
     @active_new = "active"
   end
-
-  def create
+def create
     @product = Product.create(
       name: params[:name],
       unit_cost: params[:unit_cost],
       price: params[:price],
       description: params[:description]
       )
+    #@image = Image.create(
+    #  product_id: 
+    #)
+      
     flash[:success] = "Your the product has been added to the rainforest"
     redirect_to '/products'
   end
@@ -47,6 +50,7 @@ class ProductsController < ApplicationController
       price: params[:price],
       description: params[:description]
     )
+    
     flash[:info] = "This product has been updated"
     redirect_to "/products/#{@product.id}"
   end
