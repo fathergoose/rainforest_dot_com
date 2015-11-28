@@ -1,15 +1,15 @@
 <%= form_tag '/images', method: :post do %>
-  <div>
+  <div class="form-group">
     <%= label_tag :product_id %>
-    <%= text_field_tag :product_id %>
+    <%= text_field_tag :product_id, nil, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= label_tag :url %>
-    <%= text_field_tag :url %>
+    <%= text_field_tag :url, nil, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= label_tag :fallback_text %>
-    <%= text_field_tag :fallback_text %>
+    <%= text_field_tag :fallback_text, nil, class: "form-control" %>
   </div>
   <%= submit_tag "Add Image" %>
 <% end %>  
