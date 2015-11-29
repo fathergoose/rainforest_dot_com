@@ -23,7 +23,7 @@
     <td><%= @product.price %></td>
     </tr>
     <tr>
-    <td><%= @product.supplier.name %></td>
+    <td><%= @product.supplier.name if @product.supplier %></td>
     </table>
         <a href="/products"><button type="button" class="btn btn-info">All Items</button></a>
         <a href="/products/<%= @product.id %>/edit"><button type="button" class="btn btn-warning">Edit Item</button></a>

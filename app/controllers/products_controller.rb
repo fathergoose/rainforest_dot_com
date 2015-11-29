@@ -3,7 +3,9 @@ class ProductsController < ApplicationController
   def index
     @active_home = "active"
     product_ids = Product.select(:id)
-    @random_product = product_ids.sample.id
+    if @random_product
+      @random_product = product_ids.sample.id
+    end
     @products = Array.new
 
     if params[:sort] == 'price-asc'
