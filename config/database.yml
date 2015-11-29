@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
   database: rainforest_dot_com_production
-  username: rainforest_dot_com
-  password: <%= ENV['RAINFOREST_DOT_COM_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
