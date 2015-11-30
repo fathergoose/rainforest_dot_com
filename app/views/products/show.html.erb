@@ -12,6 +12,15 @@
     </tr>
     <tr>
       <td>
+        <ul>
+        <% @product.categories.each do |category| %>
+          <li><%= category.name %></li>
+        <% end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <% @product.images.each do |image| %>
         <img class="media-object img-thumbnail" width="304" height="236" src="<%= image.url %>" alt="..."/>
         <% end %>
@@ -32,5 +41,14 @@
         
   </div>
   </div>
-  <div class="col-md-2"></div>
+  <div class="col-md-2">
+    <%= form_tag '/orders', method: :post do %>
+      <div>
+        <%= label_tag :quantity, "Quantity" %>
+        <%= text_field_tag :quantity %>
+        <%= hidden_field_tag :product_id, @product.id %>
+        <%= submit_tag "Place Order" %> 
+      </div>
+    <% end %>
+  </div>
 </div>

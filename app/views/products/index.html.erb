@@ -15,8 +15,15 @@
               <li><a href="/products">Featured</a></li>
               <li><a href="/products?sort=price-asc">Price-Low to High</a></li>
               <li><a href="/products?sort=price-dec">Price-High to Low</a></li>
-
-
+            </ul>
+            <button class="btn btn-primary">Categories</button>
+            <button class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <% Category.all.each do |category| %>
+                <li><a href="/products?category=<%= category.name %>"><%= category.name %></a></li>
+              <% end %>
             </ul>
           </div>
           <p></p>
@@ -48,3 +55,4 @@
 
   </p>
 </div>
+

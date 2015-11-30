@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root 'products#index'
   get '/products' => 'products#index'
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
   get '/images/new' => 'images#new'
   post '/images' => 'images#create'
   
+  post '/orders' => 'orders#create'
 end

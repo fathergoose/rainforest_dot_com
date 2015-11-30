@@ -12,16 +12,21 @@ class ProductsController < ApplicationController
       @products = Product.order(price: :asc)
     elsif params[:sort] == 'price-dec'
       @products = Product.order(price: :desc)
+    elsif params[:category]
+      if Category.find_by(name: params[:category])
+      @products = Category.find_by(name: params[:category]).products
+      end
     else
     @products = Product.all
     #  Product.all.each { |product| @products << product }
     end
+
   end
 
   def new
     @active_new = "active"
   end
-def create
+  def create
     @product = Product.create(
       name: params[:name],
       unit_cost: params[:unit_cost],
