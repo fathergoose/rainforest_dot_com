@@ -12,6 +12,7 @@
     </tr>
     <tr>
       <td>
+        <h2>Categories:</h2>
         <ul>
         <% @product.categories.each do |category| %>
           <li><%= category.name %></li>
@@ -41,15 +42,24 @@
         
   </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-4">
+    <div class="container-fluid">
+    <div class="row-fluid">
+    <div class="well pull-right float" style="position:fixed;margin-top:75px">
+      <h3>Place Order</h3>
     <%= form_tag '/orders', method: :post do %>
-      <div>
+      <div class="form-group">
         <%= label_tag :quantity, "Quantity" %>
         <%= text_field_tag :quantity %>
+      </div>
         <%= hidden_field_tag :product_id, @product.id %>
         <%= hidden_field_tag :user_id, current_user %>
-        <%= submit_tag "Place Order" %> 
+      <div class="form-group">
+        <%= button_tag "Place Order", class: "btn btn-success" %> 
       </div>
     <% end %>
+  </div>
+  </div>
+</div>
   </div>
 </div>
