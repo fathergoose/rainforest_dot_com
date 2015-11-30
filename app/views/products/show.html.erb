@@ -47,6 +47,7 @@
         <%= label_tag :quantity, "Quantity" %>
         <%= text_field_tag :quantity %>
         <%= hidden_field_tag :product_id, @product.id %>
+        <%= hidden_field_tag :user_id, current_user %>
         <%= submit_tag "Place Order" %> 
       </div>
     <% end %>
