@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/images/new' => 'images#new'
   post '/images' => 'images#create'
   
+  get '/orders/:id' => 'orders#show'
   get '/orders' => 'orders#index'
   post '/orders' => 'orders#create'
 end
