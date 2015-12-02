@@ -1,65 +1,64 @@
 <div class="container">
   <div class="col-md-2"></div>
   <div class="col-md-6">
-  <div class="well">
-  <table class="table">
+    <div class="well">
+      <table class="table">
 
-    <tr>
-      <th><%= @product.name %></th>
-    </tr>
-    <tr>
-      <td><h2><%= @product.sale_item %></h2></td>
-    </tr>
-    <tr>
-      <td>
-        <h2>Categories:</h2>
-        <ul>
-        <% @product.categories.each do |category| %>
-          <li><%= category.name %></li>
-        <% end %>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <% @product.images.each do |image| %>
-        <img class="media-object img-thumbnail" width="304" height="236" src="<%= image.url %>" alt="..."/>
-        <% end %>
-      </td>
-    <tr>
-      <td><%= @product.description %></td>
-    </tr>
-    <tr>
-    <td><%= @product.price %></td>
-    </tr>
-    <tr>
-    <td><%= @product.supplier.name if @product.supplier %></td>
-    </table>
-        <a href="/products"><button type="button" class="btn btn-info">All Items</button></a>
-        <a href="/products/<%= @product.id %>/edit"><button type="button" class="btn btn-warning">Edit Item</button></a>
-        <a href="/images/new"><button type="button" class="btn btn-warning">Add Image</button></a>
-        <a href="/products/<%= @product.id %>" data-method="delete"><button type="button" class="btn btn-danger">Delete Item</button></a>
-        
-  </div>
-  </div>
-  <div class="col-md-4">
-    <div class="container-fluid">
-    <div class="row-fluid">
-    <div class="well pull-right float" style="position:fixed;margin-top:75px">
-      <h3>Place Order</h3>
-    <%= form_tag '/orders', method: :post do %>
-      <div class="form-group">
-        <%= label_tag :quantity, "Quantity" %>
-        <%= text_field_tag :quantity %>
+        <tr>
+          <th><%= @product.name %></th>
+        </tr>
+        <tr>
+          <td><h2><%= @product.sale_item %></h2></td>
+        </tr>
+        <tr>
+          <td>
+            <h2>Categories:</h2>
+            <ul>
+              <% @product.categories.each do |category| %>
+                <li><%= category.name %></li>
+            <% end %>
+           </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% @product.images.each do |image| %>
+              <img class="media-object img-thumbnail" width="304" height="236" src="<%= image.url %>" alt="..."/>
+          <% end %>
+          </td>
+          <tr>
+            <td><%= @product.description %></td>
+          </tr>
+          <tr>
+            <td><%= @product.price %></td>
+          </tr>
+          <tr>
+            <td><%= @product.supplier.name if @product.supplier %></td>
+          </table>
+          <a href="/products"><button type="button" class="btn btn-info">All Items</button></a>
+          <a href="/products/<%= @product.id %>/edit"><button type="button" class="btn btn-warning">Edit Item</button></a>
+          <a href="/images/new"><button type="button" class="btn btn-warning">Add Image</button></a>
+          <a href="/products/<%= @product.id %>" data-method="delete"><button type="button" class="btn btn-danger">Delete Item</button></a>
+        </div>
       </div>
-        <%= hidden_field_tag :product_id, @product.id %>
-        <%= hidden_field_tag :user_id, current_user %>
-      <div class="form-group">
-        <%= button_tag "Place Order", class: "btn btn-success" %> 
+      <div class="col-md-4">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="well pull-right float" style="position:fixed;margin-top:75px">
+              <h3>Place Order</h3>
+              <%= form_tag '/orders', method: :post do %>
+                <div class="form-group">
+                <%= label_tag :quantity, "Quantity" %>
+                <%= text_field_tag :quantity %>
+              </div>
+              <%= hidden_field_tag :product_id, @product.id %>
+              <%= hidden_field_tag :user_id, current_user %>
+              <div class="form-group">
+                <%= button_tag "Place Order", class: "btn btn-success" %> 
+              </div>
+            <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-    <% end %>
-  </div>
-  </div>
-</div>
-  </div>
-</div>
+    </div>
