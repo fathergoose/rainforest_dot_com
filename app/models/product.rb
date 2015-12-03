@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   has_many :categories, through: :categorized_products 
   has_many :carted_products
   has_many :users, through: :carted_products
-  SALES_TAX = 0.9
+  SALES_TAX = 0.09
   def sale_item
     if price.to_i < 10
       "On Sale!!!"

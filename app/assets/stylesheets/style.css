@@ -2,3 +2,6 @@ body {
   padding-top: 70px;
   background: url("halftone.png");
 }
+thead {
+  font-size: 25%;
+}
