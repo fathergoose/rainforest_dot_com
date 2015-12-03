@@ -1,14 +1,14 @@
 <h1>Order Number:<%= params[:order_id] %></h1>
-<div class="container-fluid">
-  <table class="table-striped">
+<div class="container">
+  <table class="table">
     <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
     <% @ordered_products.each do |product| %>
       <tr>
       <td>
@@ -22,9 +22,9 @@
       </td>
     </tr>
   <% end %>
-  </tbody>
+    </tbody>
   </table>
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>

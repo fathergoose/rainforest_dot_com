@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
       #    user_id: params[:user_id],
       #    product_id: params[:product_id]
       #    )
+      flash[:success] = "Your order has been placed successfully"
       redirect_to "/orders/#{order.id}?order_id=#{order.id}"
     else
       flash[:warning] = "You must sign in before ordering" 

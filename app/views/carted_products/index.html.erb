@@ -1,10 +1,13 @@
-<div>
-  <table class="table-striped">
+<div class="container">
+  <table class="table">
+    <thead>
     <tr>
       <th>Product</th>
       <th>Quantity</th>
       <th>Price</th>
     </tr>
+  </thead>
+  <tbody>
     <% @carted_products.each do |product| %>
       <% if product.status == "in_cart" %>
       <tr>
@@ -20,8 +23,10 @@
     </tr>
   <% end %>
   <% end %>
+  </tbody>
   </table>
   <div class="row">
     <p><%= link_to "Buy now", "/orders", method: :post, class: "btn btn-success" %></p>
   </div>
+</div>
 </div>
